@@ -1,10 +1,8 @@
-# require_relative '../../../../../app/helpers/page_content_helper'
 
 module C80News
   module ApplicationHelper
 
     include LocalTimeHelper
-    # include PageContentHelper
 
     def render_news_block(is_news_page=false,page=1)
 

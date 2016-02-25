@@ -22,7 +22,39 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. `rake db:migrate`
+2. `vi db/seed/07_fill_news_props.rb`:
+
+```
+# rake db:seed:07_fill_news_props
+   
+C80News::Prop.delete_all
+C80News::Prop.create!({ per_page:8, per_widget:4 })
+```
+3. `rake db:seed:07_fill_news_props`
+4. Add the line to application's routes file:
+```
+mount C80News::Engine => '/'
+```
+5. Add this line to `application.js.coffee`:
+```
+#= require c80_news
+```
+6. Add this line to `application.scss`:
+```
+@import "c80_news/application";
+```
+7. Add this line to `application_controller.rb`:
+```
+helper C80News::Engine.helpers
+```
+
+## Available helper methods
+
+```
+render_news_block
+render_one_fact
+```
 
 ## Development
 
