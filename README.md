@@ -1,8 +1,6 @@
 # C80News
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/c80_news`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem adds news to site.
 
 ## Installation
 
@@ -22,8 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
-1. `rake db:migrate`
-2. `vi db/seed/07_fill_news_props.rb`:
+1) `rake db:migrate`
+2) `vi db/seed/07_fill_news_props.rb`:
 
 ```
 # rake db:seed:07_fill_news_props
@@ -31,20 +29,20 @@ Or install it yourself as:
 C80News::Prop.delete_all
 C80News::Prop.create!({ per_page:8, per_widget:4 })
 ```
-3. `rake db:seed:07_fill_news_props`
+3) `rake db:seed:07_fill_news_props`
 4. Add the line to application's routes file:
 ```
 mount C80News::Engine => '/'
 ```
-5. Add this line to `application.js.coffee`:
+5) Add this line to `application.js.coffee`:
 ```
 #= require c80_news
 ```
-6. Add this line to `application.scss`:
+6) Add this line to `application.scss`:
 ```
 @import "c80_news/application";
 ```
-7. Add this line to `application_controller.rb`:
+7) Add this line to `application_controller.rb`:
 ```
 helper C80News::Engine.helpers
 ```
