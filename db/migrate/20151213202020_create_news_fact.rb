@@ -1,6 +1,6 @@
 class CreateNewsFact < ActiveRecord::Migration
   def change
-    create_table :news_facts, :options => 'COLLATE=utf8_unicode_ci' do |t|
+    create_table :c80_news_facts, :options => 'COLLATE=utf8_unicode_ci' do |t|
       t.string :title
       t.string :sub_title
       t.text :short
