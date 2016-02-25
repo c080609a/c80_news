@@ -10,10 +10,10 @@ module C80News
 
 
       if is_news_page
-        per_page = News::Prop.first.per_page
+        per_page = C80News::Prop.first.per_page
         news = Fact.paginate(:page => page,:per_page => per_page)
       else
-        per_widget = News::Prop.first.per_widget
+        per_widget = C80News::Prop.first.per_widget
         news = Fact.limit(per_widget)
       end
 
