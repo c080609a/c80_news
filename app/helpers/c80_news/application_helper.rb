@@ -6,19 +6,22 @@ module C80News
 
     def render_news_block(is_news_page=false,page=1)
 
+      per_block_row = 0
 
       if is_news_page
         per_page = C80News::Prop.first.per_page
+        per_block_row = C80News::Prop.first.per_widget
         news = Fact.paginate(:page => page,:per_page => per_page)
       else
-        per_widget = C80News::Prop.first.per_widget
-        news = Fact.limit(per_widget)
+        per_block_row = C80News::Prop.first.per_widget
+        news = Fact.limit(per_block_row)
       end
 
       render :partial => "shared/news_block",
              :locals => {
                  :news_list => news,
-                 :is_news_page => is_news_page
+                 :is_news_page => is_news_page,
+                 :per_block_row => per_block_row
              }
     end
 

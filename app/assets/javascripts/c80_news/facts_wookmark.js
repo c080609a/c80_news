@@ -1,3 +1,4 @@
+/*
 var facts_wookmark_options;
 
 $(function () {
@@ -7,4 +8,4 @@ $(function () {
     setTimeout(function () {
         $('.div_facts').wookmark(facts_wookmark_options);
     },100);
-});
+});*/
