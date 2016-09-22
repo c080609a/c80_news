@@ -23,7 +23,8 @@ module C80News
     end
 
     version :thumb_preview do
-      process :resize_to_fill => [229, 152]
+      p = C80News::Prop.first
+      process :resize_to_fill => [p.preview_width, p.preview_height]
     end
 
     def store_dir
