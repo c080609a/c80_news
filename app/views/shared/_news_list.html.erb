@@ -1,7 +1,7 @@
 <div class="div_facts per_row_<%=per_row%>">
   <% news_list.each do |fact| %>
 
-      <%= check_preview(render_one_fact(fact).to_s, fact.fphotos, fact.title) %>
+      <%= check_preview(render_one_fact(fact,partial_name).to_s, fact.fphotos, fact.title) %>
 
   <% end %>
 </div>

@@ -4,7 +4,7 @@ module C80News
 
     include LocalTimeHelper
 
-    def render_news_block(is_news_page=false,page=1)
+    def render_news_block(is_news_page=false, page=1, options={})
 
       per_block_row = 0
 
@@ -21,12 +21,15 @@ module C80News
              :locals => {
                  :news_list => news,
                  :is_news_page => is_news_page,
-                 :per_block_row => per_block_row
+                 :per_block_row => per_block_row,
+                 :partial_name => options[:partial_name]
              }
     end
 
-    def render_one_fact(fact)
-      render :partial => "shared/fact",
+    def render_one_fact(fact, partial_name='fact')
+
+
+      render :partial => "shared/#{partial_name}",
              :locals => {
                  fact: fact
              }
