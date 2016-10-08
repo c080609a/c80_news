@@ -40,12 +40,25 @@ mount C80News::Engine => '/'
 ```
 6) Add this line to `application.scss`:
 ```
-@import "c80_news/application";
+@import "c80_news";
 ```
 7) Add this line to `application_controller.rb`:
 ```
 helper C80News::Engine.helpers
 ```
+
+20161009:
+```
+scout@scout-VirtualBox:~/git/bitbucket
+$ grep c80_news . -r --include=Gemfile
+./vape_store/Gemfile:gem 'c80_news'#, '0.1.0.4', :github => 'c80_news/c80_news', :branch => 'master'
+./sass_seo/Gemfile:gem 'c80_news'#, '0.1.0.4', :github => 'c80_news/c80_news', :branch => 'master'
+./techz/Gemfile:gem 'c80_news_tz', '0.1.1.26'#, :github => 'c80_news_tz/c80_news_tz', :branch => 'feature_list_companies'
+./real_estate/Gemfile:gem 'c80_news', '0.1.0.6'
+./photostudio/Gemfile:gem 'c80_news', '0.1.0.7', :github => 'c80_news/c80_news', :branch => 'master'
+./patron/Gemfile:gem 'c80_news'#, '0.1.0.4', :github => 'c80_news/c80_news', :branch => 'master'
+```
+
 
 ## Available helper methods
 
