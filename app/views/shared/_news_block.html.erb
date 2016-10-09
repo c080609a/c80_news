@@ -1,11 +1,12 @@
-<div class="ajax_div">
+<div class="ajax_div news_block <%= css_class_news_block %>">
   <%= render :partial => "shared/news_list",
              :locals => {
                      :news_list => news_list,
                      :is_news_page => is_news_page,
                      :per_row => per_block_row,
                      :partial_name => partial_name,
-                     :is_render_paginator => is_render_paginator
+                     :is_render_paginator => is_render_paginator,
+                     :thumb_size => thumb_size
              }
   %>
 </div>

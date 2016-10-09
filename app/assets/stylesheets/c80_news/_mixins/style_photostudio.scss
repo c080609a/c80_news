@@ -1,0 +1,69 @@
+@mixin style_photostudio {
+
+  div.news_list {
+
+    div.fact {
+      height: 362px;
+      overflow: hidden;
+
+      a.h5 {
+
+        h5 {
+          padding-right: 14px;
+          font-size: 20px;
+        }
+
+      }
+
+      p.short {
+        padding-right: 14px;
+        color: #747474;
+      }
+
+    }
+
+  }
+
+  &.is_news_page {
+
+    div.fact {
+      height: 360px;
+      position: relative;
+
+      a.h5 {
+        position: relative;
+        display: block;
+
+        h5 {
+          /* разместим поверх картинки на полупрозрачном фоне */
+          color: #ffffff;
+          position: absolute;
+          top: -102px;
+          padding: 19px 6px 6px 15px;
+          background-color: rgba(0, 0, 0, 0.5);
+          height: 67px;
+          font-size: 18px;
+          text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+        }
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      p.date {
+        position: absolute;
+        height: 25px;
+        margin: 0;
+        top: 192px;
+        padding: 3px 5px 6px 16px;
+        background-color: rgba(255, 255, 0, 0.71);
+        width: 89px !important;
+        /*border-bottom: 1px solid rgba(255,255,255,0.9);*/
+      }
+    }
+
+  }
+
+}
+

@@ -35,8 +35,8 @@ $(function () {
                type: "POST",
                data: {
                    page: page,
-                   is_render_paginator: $('.div_facts').data('is_render_paginator'),
-                   partial_name: $('.div_facts').data('partial_name')
+                   is_render_paginator: $('.news_list').data('is_render_paginator'),
+                   partial_name: $('.news_list').data('partial_name')
                },
                dataType: "script"
            }).done(callback);

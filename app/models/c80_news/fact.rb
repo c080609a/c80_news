@@ -36,6 +36,30 @@ module C80News
 
     end
 
+    def thumb_sm
+      s = ''
+      if fphotos.count > 0
+        s = fphotos.first.image.thumb_sm
+      end
+      s
+    end
+    
+    def thumb_md
+      s = ''
+      if fphotos.count > 0
+        s = fphotos.first.image.thumb_md
+      end
+      s
+    end
+    
+    def thumb_lg
+      s = ''
+      if fphotos.count > 0
+        s = fphotos.first.image.thumb_lg
+      end
+      s
+    end
+    
     def thumb_preview
       s = ''
       if fphotos.count > 0
