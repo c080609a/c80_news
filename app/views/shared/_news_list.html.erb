@@ -1,7 +1,7 @@
 <div class="news_list per_row_<%=per_row%>" data-partial_name="<%= partial_name %>" data-is_render_paginator="<%= is_render_paginator %>">
   <% news_list.each do |fact| %>
 
-      <%= check_preview(render_one_fact(fact,partial_name,thumb_size).to_s, fact.fphotos, fact.title) %>
+      <%= render_one_fact(fact, partial_name, thumb_size).to_s %>
 
   <% end %>
 </div>

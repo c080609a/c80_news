@@ -24,4 +24,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'activesupport', ['>= 3.0.0']
   spec.add_dependency "rails", "~> 4.2.0"
   spec.add_dependency "local_time"
+  spec.add_dependency "c80_lazy_images"
 end
