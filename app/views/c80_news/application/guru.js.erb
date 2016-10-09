@@ -1,7 +1,9 @@
-var $cc = $(".ajax_div");
+var $cc = $(".ajax_div").parent();
 var html_str = "<%= j render_news_block(true,params[:page], {
                                                                 :partial_name => params[:partial_name],
-                                                                :is_render_paginator => params[:is_render_paginator]})
+                                                                :is_render_paginator => params[:is_render_paginator],
+                                                                :css_class_news_block => params[:css_class_news_block]
+                                                            })
 %>";
 
 $cc.html(html_str);

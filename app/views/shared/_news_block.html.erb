@@ -1,4 +1,7 @@
-<div class="ajax_div news_block <%= css_class_news_block %>">
+<div class="ajax_div news_block <%= css_class_news_block %>"
+     data-partial_name="<%= partial_name %>"
+     data-css_class_news_block="<%= css_class_news_block %>"
+     data-is_render_paginator="<%= is_render_paginator %>">
   <%= render :partial => "shared/news_list",
              :locals => {
                      :news_list => news_list,

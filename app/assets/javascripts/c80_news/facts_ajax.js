@@ -30,13 +30,17 @@ $(function () {
        };
 
        fNewsdoAjaxRequest = function (page/*integer*/,callback/*function*/) {
+
+           var $ajax_div = $('.ajax_div'); // к этому контейнеру изначально прикреплены кое-какие данные
+           
            $.ajax({
                url: "/news_guru",
                type: "POST",
                data: {
                    page: page,
-                   is_render_paginator: $('.news_list').data('is_render_paginator'),
-                   partial_name: $('.news_list').data('partial_name')
+                   is_render_paginator: $ajax_div.data('is_render_paginator'),  // эти переменные
+                   partial_name: $ajax_div.data('partial_name'),                // уходят транзитом
+                   css_class_news_block: $ajax_div.data('css_class_news_block') // на render_news_block
                },
                dataType: "script"
            }).done(callback);

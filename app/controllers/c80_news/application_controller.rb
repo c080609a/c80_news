@@ -1,5 +1,4 @@
 require "c80_lazy_images"
-# include C80LazyImages::Helpers::LazyImagesHelper
 
 module C80News
   class ApplicationController < ActionController::Base

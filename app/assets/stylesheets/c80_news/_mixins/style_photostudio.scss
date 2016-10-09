@@ -70,6 +70,8 @@
   }
 
   div.div_will_paginate {
+    clear: both;
+
     div.pagination {
 
       span {
@@ -101,26 +103,20 @@
       }
 
       a {
+        display: inline-block;
+        border: 1px solid #cbcbcf;
+        background-color: #E4E4E9;
+        color: #292B3A;
+        line-height: 29px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        font-family: arial, sans-serif;
+        text-decoration: none;
 
-        &[rel=next] {
-          display: inline-block;
-          border: 1px solid #cbcbcf;
-          background-color: #E4E4E9;
-          color: #292B3A;
-          line-height: 29px;
-          width: 30px;
-          height: 30px;
-          text-align: center;
-          font-family: arial, sans-serif;
-          text-decoration: none;
-
-          &.next_page {
-            display: none;
-          }
-
+        &.next_page {
+          display: none;
         }
-
-
 
       }
 

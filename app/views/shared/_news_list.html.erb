@@ -1,4 +1,4 @@
-<div class="news_list per_row_<%=per_row%>" data-partial_name="<%= partial_name %>" data-is_render_paginator="<%= is_render_paginator %>">
+<div class="news_list clearfix per_row_<%=per_row%>">
   <% news_list.each do |fact| %>
 
       <%= render_one_fact(fact, partial_name, thumb_size).to_s %>
