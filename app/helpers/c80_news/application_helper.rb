@@ -63,7 +63,7 @@ module C80News
     end
 
     def url_for_fact(fact)
-      "news/#{fact.slug}"
+      "/news/#{fact.slug}"
     end
 
   end
