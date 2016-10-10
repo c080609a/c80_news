@@ -9,7 +9,7 @@ var fNewsStartWillPaginateAjax;
 var fNewsProcessBlocks; // при клике по preview-картинке новости будет происходить переход на просмотр новости
 
 $(function () {
-   if ($("body#news").length == 1 || $('.news_widget').find('div.div_will_paginate').length == 1) {
+   if ($(".news_block").length) {
 
        fNewsBindHistoryAdapter = function () {
            History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate

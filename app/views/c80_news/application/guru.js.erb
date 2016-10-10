@@ -6,7 +6,9 @@ var html_str = "<%= j render_news_block(true,params[:page], {
                                                             })
 %>";
 
-$cc.html(html_str);
+$('.ajax_div').remove();
+$cc.append(html_str);
+
 Holder.run(".ajax_div img");
 fLazyStart();
 
