@@ -57,7 +57,7 @@ module C80News
       # puts "<PageArtUploader.resize_to_limit_small>"
       manipulate! do |img|
 
-        w = SiteProp.first.page_content_width/3
+        w = SiteProp.first.page_content_width/2
         h = calc_height_of_image(w)
 
         img.resize "#{w}x#{h}>"
