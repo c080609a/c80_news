@@ -4,24 +4,20 @@ module C80News
     # ограничение оригинальной картинки
     process :resize_to_limit => [1600,1600]
 
-    include CarrierWave::MiniMagick
-
-    storage :file
-
     def store_dir
       "uploads/news/#{format("%02d", model.fact_id)}"
     end
 
-    def extension_white_list
-      %w(jpg jpeg gif png)
+    # ---[ идут в контент новости ]---[ размер зависит от SiteProps.page_content_width ]--------------------------------------------------------------------------------------------------------------------
+
+    version :thumb_big do
+      process :resize_to_thumb_big
     end
 
-    def filename
-      if original_filename
-        "photo_#{secure_token(4)}.#{file.extension}"
-      end
-    end    
-    
+    version :thumb_small do
+      process :resize_to_thumb_small
+    end
+
     # ------------------------------------------------------------------------------------------------------------------------
 
     version :thumb_preview do
@@ -39,6 +35,36 @@ module C80News
 
     version :thumb_sm do
       process :resize_to_sm
+    end
+
+    # --[ идут в контент новости ]--------------------------------------------------------------------------------------
+
+    def resize_to_thumb_big
+      # puts "<PageArtUploader.resize_to_limit_big>"
+      manipulate! do |img|
+
+        w = SiteProp.first.page_content_width
+        h = calc_height_of_image(w)
+
+        img.resize "#{w}x#{h}>"
+        img = yield(img) if block_given?
+        img
+
+      end
+    end
+
+    def resize_to_thumb_small
+      # puts "<PageArtUploader.resize_to_limit_small>"
+      manipulate! do |img|
+
+        w = SiteProp.first.page_content_width/3
+        h = calc_height_of_image(w)
+
+        img.resize "#{w}x#{h}>"
+        img = yield(img) if block_given?
+        img
+
+      end
     end
 
     # ------------------------------------------------------------------------------------------------------------------------
