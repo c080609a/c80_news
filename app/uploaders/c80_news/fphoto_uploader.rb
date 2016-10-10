@@ -21,10 +21,14 @@ module C80News
     # ------------------------------------------------------------------------------------------------------------------------
 
     version :thumb_preview do
-      Proc.new {
+      begin
+        # Proc.new {
         p = C80News::Prop.first
         process :resize_to_fill => [p.thumb_preview_width, p.thumb_preview_height]
-      }
+        # }
+      rescue => e
+        Rails.logger.debug "[TRACE] <C80News.fphoto_uploader> thumb_preview ERROR: #{e}"
+      end
     end
 
     version :thumb_lg do
