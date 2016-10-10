@@ -21,8 +21,10 @@ module C80News
     # ------------------------------------------------------------------------------------------------------------------------
 
     version :thumb_preview do
-      p = C80News::Prop.first
-      process :resize_to_fill => [p.thumb_preview_width, p.thumb_preview_height]
+      Proc.new {
+        p = C80News::Prop.first
+        process :resize_to_fill => [p.thumb_preview_width, p.thumb_preview_height]
+      }
     end
 
     version :thumb_lg do
