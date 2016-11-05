@@ -9,7 +9,7 @@ var fNewsStartWillPaginateAjax;
 var fNewsProcessBlocks; // при клике по preview-картинке новости будет происходить переход на просмотр новости
 
 $(function () {
-   if ($(".news_block").length) {
+   if ($('.news_block[data-is_render_paginator="true"]').length) {
 
        fNewsBindHistoryAdapter = function () {
            History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
@@ -48,7 +48,7 @@ $(function () {
 
        fNewsProccessPaginateLinks = function () {
            //console.log("fNewsProccessPaginateLinks");
-           $(".div_will_paginate a").click(function (e) {
+           $(".news_block .div_will_paginate a").click(function (e) {
                e.preventDefault();
                var page = $(this).attr('href').split("?page=")[1];
                History.pushState({page:page},window.document.title,"?page="+page);
@@ -56,7 +56,7 @@ $(function () {
        };
 
        fNewsStartWillPaginateAjax = function () {
-           if ($(".div_will_paginate a").length > 0) {
+           if ($(".news_block .div_will_paginate a").length > 0) {
                fNewsProccessPaginateLinks();
                fNewsBindHistoryAdapter();
            }

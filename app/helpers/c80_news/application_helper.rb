@@ -25,13 +25,17 @@ module C80News
 
       news = Fact.paginate(:page => page, :per_page => per_page)
 
+      is_render_paginator = options[:is_render_paginator].present? \
+                            ? options[:is_render_paginator] \
+                            : is_news_page
+
       render :partial => "shared/news_block",
              :locals => {
                  :news_list => news,
                  :is_news_page => is_news_page,
                  :per_block_row => per_block_row,
                  :partial_name => options[:partial_name],
-                 :is_render_paginator => options[:is_render_paginator],
+                 :is_render_paginator => is_render_paginator,
                  :thumb_size => options[:thumb_size],
                  :css_class_news_block => css_class_news_block,
                  :h3_title => options[:h3_title]
@@ -45,7 +49,7 @@ module C80News
         thumb_size = 'thumb_md'
       end
 
-      Rails.logger.debug "[TRACE] <render_one_fact> thumb_size: #{thumb_size}"
+      # Rails.logger.debug "[TRACE] <render_one_fact> thumb_size: #{thumb_size}"
 
       # свойства модуля
       p = Prop.first
