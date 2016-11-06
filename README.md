@@ -65,6 +65,9 @@ $ grep c80_news . -r --include=Gemfile
 ```
 render_news_block
 render_one_fact
+
+render_news_block(false, params[:page], {:partial_name => 'fact_inverted', :thumb_size => 'thumb_preview', :css_class_news_block => 'style_photostudio'})
+render_news_block(true, params[:page], {:partial_name => 'fact_inverted', :thumb_size => 'thumb_md', :css_class_news_block => 'style_photostudio'})
 ```
 
 ## Development
