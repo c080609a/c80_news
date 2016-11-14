@@ -1,4 +1,4 @@
-var $cc = $(".ajax_div").parent();
+
 var html_str = "<%= j render_news_block(true,params[:page], {
                                                                 :partial_name => params[:partial_name],
                                                                 :is_render_paginator => params[:is_render_paginator],
@@ -6,10 +6,10 @@ var html_str = "<%= j render_news_block(true,params[:page], {
                                                             })
 %>";
 
-$('.ajax_div').remove();
-$cc.append(html_str);
+var $aa = $('.news_block[data-is_render_paginator="true"]');
+$aa.replaceWith(html_str);
 
-Holder.run(".ajax_div img");
+Holder.run($aa.find("img"));
 fLazyStart();
 
 fNewsProccessPaginateLinks();

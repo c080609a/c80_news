@@ -18,6 +18,10 @@ div.news_block {
         max-width: 100%;
       }
 
+      &.clear_left {
+        clear: left;
+      }
+
     }
 
     &.per_row_3 {
