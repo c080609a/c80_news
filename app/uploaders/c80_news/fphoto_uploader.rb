@@ -46,17 +46,18 @@ module C80News
     # --[ идут в контент новости ]--------------------------------------------------------------------------------------
 
     def resize_to_thumb_big
+      # byebug
+
+      w = SiteProp.first.page_content_width
+      h = calc_height_of_image(w)
+
       # puts "<PageArtUploader.resize_to_limit_big>"
       manipulate! do |img|
-
-        w = SiteProp.first.page_content_width
-        h = calc_height_of_image(w)
-
         img.resize "#{w}x#{h}>"
         img = yield(img) if block_given?
         img
-
       end
+
     end
 
     def resize_to_thumb_small
@@ -76,18 +77,17 @@ module C80News
     # ------------------------------------------------------------------------------------------------------------------------
 
     def resize_to_lg
+      # byebug
+
+      w = C80News::Prop.first.thumb_lg_width
+      h = C80News::Prop.first.thumb_lg_height
 
       manipulate! do |img|
-
-        w = C80News::Prop.first.thumb_lg_width
-        h = C80News::Prop.first.thumb_lg_height
-
         img.resize "#{w}x#{h}^"
         img.gravity 'center'
         img.extent "#{w}x#{h}"
         img = yield(img) if block_given?
         img
-
       end
 
     end
@@ -137,7 +137,7 @@ module C80News
     private
 
     def calc_height_of_image(w)
-      model_image = ::MiniMagick::Image.open(model.image.current_path)
+      model_image = ::MiniMagick::Image.open(current_path)
       calc_height(w, model_image["width"], model_image["height"])
     end
 
